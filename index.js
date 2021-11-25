@@ -59,14 +59,18 @@ app.use((req, res, next) => {
 var sessionChecker = (req, res, next) => {
   if (req.session.user && req.cookies.user_sid) {
     console.log('logado')
-    //usernameView = req.session.user.username
+    usernameView = req.session.user.username
     sessionID = 'YES'
-    next()
+    res.redirect('/home')
   } else {
     sessionID = 'NOT'
     next();
   }
 };
+
+app.get("/home", (req, res) => {
+  res.render(views + 'home', {sessionID, usernameView})
+});
 
 // route for Home-Page
 app.get("/", sessionChecker, (req, res) => {
@@ -76,20 +80,20 @@ app.get("/", sessionChecker, (req, res) => {
   console.log(req.session.user)
 });
 
-app.get("/plantas", sessionChecker, (req, res) => {
+app.get("/plantas",  (req, res) => {
   res.render(views + 'plantas', {sessionID, usernameView})
 });
 
-app.get("/agapantos", sessionChecker, (req, res) => {
+app.get("/agapantos",  (req, res) => {
   res.render(views + 'plantas/agapantos', {sessionID, usernameView})
 });
-app.get("/amora", sessionChecker, (req, res) => {
+app.get("/amora",  (req, res) => {
   res.render(views + 'plantas/amora', {sessionID, usernameView})
 });
-app.get("/camarao-vermelho", sessionChecker, (req, res) => {
+app.get("/camarao-vermelho", (req, res) => {
   res.render(views + 'plantas/camarao-vermelho', {sessionID, usernameView})
 });
-app.get("/jabuticabeira", sessionChecker, (req, res) => {
+app.get("/jabuticabeira", (req, res) => {
   res.render(views + 'plantas/jabuticabeira', {sessionID, usernameView})
 });
 app.get("/jiboia", sessionChecker, (req, res) => {
