@@ -115,7 +115,7 @@ app.get("/camarao-vermelho", (req, res) => {
 app.get("/jabuticabeira", (req, res) => {
   res.render(views + 'plantas/jabuticabeira', {sessionID, usernameView})
 });
-app.get("/jiboia", sessionChecker, (req, res) => {
+app.get("/jiboia", (req, res) => {
   res.render(views + 'plantas/jiboia', {sessionID, usernameView})
 });
 

@@ -9,6 +9,7 @@ const swDark = document.getElementById("swDark")
 const imgUser = document.getElementById("imgUser")
 const imgPlant = document.getElementById("imgPlant")
 const imgHome = document.getElementById("imgHome")
+const imgHamb = document.getElementById("imgHamb")
 
 
 
@@ -103,7 +104,7 @@ if(Cookies.get('dark')){
         target.checked ? imgHome.src = "img/homeW.png" : imgHome.src = "img/home.png"
     target.checked ? imgPlant.src = "img/plantW.png" : imgPlant.src = "img/plant.png"
     target.checked ? imgUser.src = "img/userW.png" : imgUser.src = "img/user.png"
-    
+    target.checked ? imgHamb.src = "img/hambW.png" : imgHamb.src = "img/hamb.png"    
     
     
 
@@ -118,6 +119,7 @@ if(Cookies.get('dark')){
     imgHome.src = "img/homeW.png"
 imgPlant.src = "img/plantW.png"
     imgUser.src = "img/userW.png"
+    imgHamb.src = "img/hambW.png"
     
     
 }    
@@ -132,6 +134,7 @@ else{
     imgHome.src = "img/home.png"
     imgPlant.src = "img/plant.png"
     imgUser.src = "img/user.png"
+    imgHamb.src = "img/hamb.png"
     
 
     
