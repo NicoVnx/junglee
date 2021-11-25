@@ -145,14 +145,12 @@ app
         req.session.save(err => {
           if(err){
               console.log(err);
+              res.redirect('/')
           } else {
-              res.redirect('/home') 
-          }
-      });
-        
-        
-        res.redirect("/");
-      }
+              res.redirect('/') 
+          }})
+
+    }
     });
   });
 
@@ -182,8 +180,9 @@ app
         req.session.save(err => {
           if(err){
               console.log(err);
+              res.redirect('/')
           } else {
-              res.redirect('/home') 
+              res.redirect('/') 
           }})
 
     }catch (error) {
@@ -193,6 +192,7 @@ app
 
 // route for user logout
 app.post("/logout", (req, res) => {
+  sessionID = "NOT"
   if (req.session.user && req.cookies.user_sid) {
     res.clearCookie("user_sid");
     res.redirect("/");
