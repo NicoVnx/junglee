@@ -6,10 +6,16 @@ var morgan = require("morgan");
 var User = require("./models/User");
 const views = __dirname + "/views/";
 
+const uri = "mongodb+srv://nico:123321@cluster0.rtak1.mongodb.net/testeDB?retryWrites=true&w=majority";
+
+const MongoStore = require('connect-mongo')
+
 var app = express();
 
 var sessionID
 var usernameView
+
+
 
 app.use(express.static(__dirname + '/public'))
 
@@ -30,13 +36,20 @@ app.use(cookieParser());
 // initialize express-session to allow us track the logged-in user across sessions.
 app.use(
   session({
-    key: "user_sid",
+    key: 'user_sid',
     secret: "somerandonstuffs",
     resave: false,
     saveUninitialized: false,
     cookie: {
       expires: 600000,
     },
+    
+    store: MongoStore.create({
+      mongoUrl: uri,
+      url: uri, //YOUR MONGODB URL
+      ttl: 14 * 24 * 60 * 60,
+      autoRemove: 'native' 
+  })
   })
 );
 
@@ -50,7 +63,7 @@ app.use(
 // This usually happens when you stop your express server after login, your cookie still remains saved in the browser.
 app.use((req, res, next) => {
   if (req.cookies.user_sid && !req.session.user) {
-    res.clearCookie("user_sid");
+    res.clearCookie('user_sid');
   }
   next();
 });
@@ -125,6 +138,14 @@ app
       } else {
           console.log(docs)
         req.session.user = docs;
+        req.session.save(err => {
+          if(err){
+              console.log(err);
+          } else {
+              res.send(req.session.user) // YOU WILL GET THE UUID IN A JSON FORMAT
+          }
+      });
+        
         
         res.redirect("/");
       }
