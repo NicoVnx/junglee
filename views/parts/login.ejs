@@ -1,12 +1,13 @@
 <div class="partLogin">
     <div class="erros">
-    
-</div>
+        <% if(erros.length >= 1){erros.forEach(erro => { %><a>* <%= erro.txt %></a><% })} %>
+        </div>
+
     <div class="forms">
     <form action="/login" method="post" class="formLogin">
     <h4>Login</h4>
     <div class="box">
-        <label for="username">Username
+        <label for="username">User
         <input type="text" id="username" name="username"></label>
         <label for="password">Senha
         <input type="password" id="password" name="password" ></label>
@@ -19,12 +20,12 @@
     <form action="/signup" method="post" class="formCad">
     <h4>Cadastro</h4>
     <div class="box">
-        <label for="username">Username
-        <input type="text" id="username" name="username" ></label>
+        <label for="username">User
+        <input type="text" id="username" name="username" maxlength="14" minlength="4"></label>
         <label for="email">Email
         <input type="text" id="email" name="email"></label>
         <label for="password">Senha
-        <input type="password" id="password" name="password" ></label>
+        <input type="password" id="password" name="password" maxlength="20" minlength="6"></label>
         
         <button type="submit">Confirmar</button>
     </div>
