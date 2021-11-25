@@ -57,7 +57,7 @@ app.use(
 
 // middleware function to check for logged-in users
 var sessionChecker = (req, res, next) => {
-  if (req.session.user && req.cookies.user_sid) {
+  if (req.cookies.user_sid) {
     console.log('logado')
     usernameView = req.session.user.username
     sessionID = 'YES'
