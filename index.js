@@ -146,7 +146,7 @@ app
           if(err){
               console.log(err);
           } else {
-              res.send(req.session.user) // YOU WILL GET THE UUID IN A JSON FORMAT
+              res.redirect('/home') 
           }
       });
         
@@ -179,11 +179,15 @@ app
             }
         });
         req.session.user = user;
+        req.session.save(err => {
+          if(err){
+              console.log(err);
+          } else {
+              res.redirect('/home') 
+          }})
 
-        res.redirect("/");
-    } catch (error) {
-      console.log(error)
-    }
+    }catch (error) {
+      console.log(error)}
   });
 
 
