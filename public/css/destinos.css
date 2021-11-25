@@ -1,0 +1,291 @@
+
+
+.container.dest{
+
+    padding-top: 80px;
+
+}
+
+.content-dest{
+    width: 100%;
+    max-width: 950px;
+    margin: 10vh auto;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    padding: 0 ;
+    box-sizing: border-box;
+}
+
+.navGuia{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.navGuia p{
+
+    color: var(--color-sub);
+    font-size: 14px;
+    width: 20%;
+
+}
+
+.title-dest{
+
+    display: flex;
+    flex-direction: column;
+   gap: 3vh;
+   
+}
+
+.title-dest h2{
+
+    font-size: 50px;
+    width: 100%;
+    margin: 0;
+    color: var(--color-tema);
+
+}
+
+.title-dest p.sub.one{
+
+    margin: 0;
+    font-size: 18px;
+
+}
+
+.listaDest{
+
+    list-style-type: none;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+gap: 3vh;
+    border: 1px solid var(--color-border) ;
+    border-radius: 3px;
+    padding: 3vw 5vh;
+    box-sizing: border-box;
+
+}
+
+.listaDest li{
+
+
+    height: 90px;
+    
+
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.listaDest .hr{
+
+    margin: 0 auto;
+    width: 98%;
+
+}
+
+
+.card p{
+
+    
+    height: 100%;
+    font-size: 17px;
+    color: var(--color-txttwo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+
+}
+
+.card .contCat{
+
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.card a.sub{
+
+    width: 20%;
+
+}
+
+
+.card{
+
+   width: 100%;
+
+}
+
+.card img.star{
+
+    width: 50%;
+
+}
+
+.card .img{
+
+    width: 20%;
+
+}
+
+.partTitleCard{
+    gap: 1vw;
+    width: 20%;
+    display: flex;
+    align-items: center;
+
+}
+
+@media (max-width: 1040px){
+
+.content-dest{
+
+    padding: 0 5vw;
+
+}
+
+    .title-dest h2{
+
+        font-size: 45px;
+        
+    
+    }
+    
+    .title-dest p.sub.one{
+    
+       
+        font-size: 15px;
+    
+    }
+
+    .card img.star{
+
+        width: 50%;
+    
+    }
+
+    .card p{
+
+    
+        font-size: 15px;
+        
+    
+    
+    }
+
+    .navGuia p {
+        
+        font-size: 13px;
+        
+    }
+
+    .card p.categoria {
+        font-size: 15px;
+    }
+
+    .card a.sub {
+        font-size: 13px;
+    }
+
+    
+}
+
+
+
+@media (max-width: 690px){
+
+    .partTitleCard{
+
+        flex-direction: column;
+
+    }
+
+    .content-dest{
+
+        margin: 7vh auto;
+    
+    }
+
+    .title-dest h2{
+
+        font-size: 40px;
+        
+    
+    }
+    
+    .title-dest p.sub.one{
+    
+       
+        font-size: 13px;
+    
+    }
+
+    .card img.star{
+
+        width: 50%;
+    
+    }
+
+    .card p{
+
+    
+        font-size: 13px;
+        
+    
+    
+    }
+
+    .navGuia p {
+        
+        font-size: 12px;
+        
+    }
+
+    .card p.categoria {
+        font-size: 13px;
+    }
+
+    .card a.sub {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 720px){
+
+    
+    .contCat{
+
+        flex-direction: column;
+        gap: 5px;
+
+
+    }
+
+    .contCat p{
+
+        margin: 0;
+
+    }
+
+    .contCat .div{
+
+        display: none;
+
+    }
+
+}

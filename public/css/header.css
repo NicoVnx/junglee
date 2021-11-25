@@ -1,0 +1,199 @@
+header.jungle{
+    transition: .7s;
+background-color: var(--bg);
+
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    z-index: 10000000;
+
+    
+    
+}
+
+header.jungle.shadow{
+transition: .7s;
+    box-shadow: 1px 1px 12px rgba(0, 0, 0, 0.103);
+
+}
+
+header form{
+
+    margin: 0;
+
+}
+
+button{
+
+    border: 0;
+
+}
+
+p.sub{
+
+    text-decoration: none;
+
+}
+
+.container.header{
+
+   max-width: 1300px;
+   margin: 0 auto;
+   height: 80px;
+    justify-content: space-between;
+
+    padding: 0 50px;
+    box-sizing: border-box;
+
+}
+
+ul .hr{
+
+    margin: 0;
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.075);
+
+}
+
+header ul li a{
+    transition: .5s;
+    height: fit-content;
+    position:relative;
+
+}
+
+header ul li i{
+
+    transition: .5s;
+
+}
+
+header a:hover, header button:hover{
+
+   color:var(--color-tema) ;
+   cursor: pointer;
+   transition: 0.25s;
+
+}
+
+.user{
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+}
+
+input#switch{
+
+    display: none;
+
+}
+
+label.sw{
+
+transition: 0.5s;
+width: 24px;
+height: 24px;
+font-style: italic;
+cursor: pointer;
+
+font-weight: 400;
+color: rgba(0, 0, 0, 0.705);
+
+
+}
+
+label.sw:hover{
+
+    transform: rotate(45deg);
+
+}
+
+input:checked + label.sw {
+
+    transition: 0.5s;
+
+}
+
+header p {
+
+margin: 0;
+
+}
+
+.off{
+
+    color: rgba(241, 37, 37, 0.658);
+
+}
+
+.on{
+    
+    color: rgba(13, 163, 13, 0.623);
+
+}
+
+.sw .swsw{
+    
+display: flex;
+gap: 10px;
+width: 80px;
+box-sizing: border-box;
+overflow: hidden;
+
+}
+
+.sw.sw .on{
+
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    margin-left: 0px;
+    
+    }
+.sw.swOn .on{
+    opacity: 1;
+    visibility: visible;
+transition: 0.5s;
+margin-left: -35px;
+
+}
+.sw.swOn .off{
+
+    visibility: hidden;
+    
+}
+
+
+@media (max-width: 810px){
+
+    .onOff p , .swsw p{
+
+        font-size: 14px;
+
+    }
+
+
+    header a{
+
+        font-size: 14px;
+
+    }
+}
+
+@media (max-width: 460px){
+
+    .onOff p , .swsw p{
+
+        font-size: 13px;
+
+    }
+
+
+    header a{
+
+        font-size: 13px;
+
+    }
+}

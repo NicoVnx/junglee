@@ -1,0 +1,139 @@
+.container.dest{
+
+    padding-top: 80px;
+    
+    width: fit-content;
+    flex-direction: column;
+
+}
+
+.content-dest{
+
+    margin: 5vh auto;
+
+}
+.plantas{
+
+    width: 100%;
+    max-width: 1500px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    gap: 25px;
+
+}
+
+.plantas .card{
+display: flex;
+justify-content: center;
+align-items: flex-end  ;
+    width: 400px;
+    height: 300px;
+    border: 1px solid var(--color-border);
+
+    border-radius: 5px;
+
+}
+
+.title-dest h1{
+
+    color: var(--color-tema)
+
+}
+
+
+.sub.one{
+
+    padding: 10px;
+    color: var(--color-txttwo)
+
+}
+
+.card{
+
+color: var(--color-txtone);
+
+}
+.card.jabuticabeira{
+
+    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.651)), url('/img/jabuticabeira.png') ;
+
+}
+
+.card.agapantos{
+
+    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.651)), url('/img/Agapanto.png') ;
+
+}
+
+.card.amora{
+
+    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.651)), url('/img/Amora.png');
+
+}
+
+.card.camarao{
+
+    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.651)), url('/img/camarao.png');
+
+}
+
+.card.jiboia{
+
+    background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.651)), url('/img/Jiboia.png');
+
+}
+
+@media (max-width: 810px){
+
+    
+    .descMain{
+
+        font-size: 14px;
+       
+    }
+
+    .pp h3{
+
+
+        font-size: 14px;
+    
+    }
+    
+    
+}
+
+@media (max-width: 600px){
+    
+    .title-dest h1{
+
+        font-size: 20px;
+
+    }
+    
+}
+
+@media (max-width: 460px){
+
+    .plantas .card{
+
+        width: 350px;
+        height: 250px;
+
+    }
+
+    .descMain{
+
+        font-size: 13px;
+       
+    }
+
+    .pp h3{
+
+
+        font-size: 13px;
+    
+    }
+}

@@ -1,0 +1,52 @@
+<header class="jungle">
+       
+    <nav class="container header">
+
+            <a href="/">  <img src="img/home.png" id="imgHome" alt=""> </a>
+            
+                
+            <div class="user"><img src="img/plant.png" id="imgPlant" alt=""><a href="/plantas">Galeria de Plantas</a></div>
+                
+            
+
+<%if(sessionID === 'NOT'){%>
+    <div class="user"><img src="img/user.png" id="imgUser" alt=""><a href="/login">Logar-se</a></div>
+    <%}else{%>
+        <div class="user"><img src="img/user.png" id="imgUser" alt=""><p><%= usernameView %> </p></div>
+        <form action="/logout" method="post">
+                    <button type="submit"><a>Logout</a> </button>
+                </form>
+        <%}%> 
+    
+
+ 
+
+        
+
+       
+                
+
+                
+               
+        
+        <div class="toggle">
+        <input id="switch" type="checkbox" name="theme">
+        <label id="swDark" class="sw swOn" for="switch">
+            <div class="onOff">
+                <p>darkmode</p>  
+                <div class="swsw">
+                    <p class="off">OFF</p>
+                    <p class="on">ON</p>
+                    
+                </div>
+            </div>
+            
+        </label>
+        </div>
+
+    </nav>
+            
+
+    
+
+</header>

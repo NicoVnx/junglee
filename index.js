@@ -4,11 +4,19 @@ var cookieParser = require("cookie-parser");
 var session = require("express-session");
 var morgan = require("morgan");
 var User = require("./models/User");
+const views = __dirname + "/views/";
 
 var app = express();
 
+var sessionID
+var usernameView
+
+app.use(express.static(__dirname + '/public'))
+
 // set our application port
 app.set("port", 4000);
+
+app.set("view engine", "ejs");
 
 // set morgan to log info about our requests for development use.
 app.use(morgan("dev"));
@@ -32,6 +40,12 @@ app.use(
   })
 );
 
+
+
+
+
+
+
 // This middleware will check if user's cookie is still saved in browser and user is not set, then automatically log the user out.
 // This usually happens when you stop your express server after login, your cookie still remains saved in the browser.
 app.use((req, res, next) => {
@@ -44,22 +58,49 @@ app.use((req, res, next) => {
 // middleware function to check for logged-in users
 var sessionChecker = (req, res, next) => {
   if (req.session.user && req.cookies.user_sid) {
-    res.redirect("/dashboard");
+    console.log('logado')
+    usernameView = req.session.user.username
+    sessionID = 'YES'
+    next()
   } else {
+    sessionID = 'NOT'
     next();
   }
 };
 
 // route for Home-Page
 app.get("/", sessionChecker, (req, res) => {
-  res.redirect("/login");
+  
+  res.render(views + 'index', {sessionID, usernameView})
+  console.log(sessionID)
+  console.log(req.session.user)
+});
+
+app.get("/plantas", sessionChecker, (req, res) => {
+  res.render(views + 'plantas', {sessionID, usernameView})
+});
+
+app.get("/agapantos", sessionChecker, (req, res) => {
+  res.render(views + 'plantas/agapantos', {sessionID, usernameView})
+});
+app.get("/amora", sessionChecker, (req, res) => {
+  res.render(views + 'plantas/amora', {sessionID, usernameView})
+});
+app.get("/camarao-vermelho", sessionChecker, (req, res) => {
+  res.render(views + 'plantas/camarao-vermelho', {sessionID, usernameView})
+});
+app.get("/jabuticabeira", sessionChecker, (req, res) => {
+  res.render(views + 'plantas/jabuticabeira', {sessionID, usernameView})
+});
+app.get("/jiboia", sessionChecker, (req, res) => {
+  res.render(views + 'plantas/jiboia', {sessionID, usernameView})
 });
 
 // route for user signup
 app
   .route("/signup")
   .get(sessionChecker, (req, res) => {
-    res.sendFile(__dirname + "/public/signup.html");
+    res.redirect('/');
   })
   .post((req, res) => {
 
@@ -70,11 +111,12 @@ app
     });
     user.save((err, docs) => {
       if (err) {
-        res.redirect("/signup");
+        res.redirect("/");
       } else {
           console.log(docs)
         req.session.user = docs;
-        res.redirect("/dashboard");
+        
+        res.redirect("/");
       }
     });
   });
@@ -83,7 +125,7 @@ app
 app
   .route("/login")
   .get(sessionChecker, (req, res) => {
-    res.sendFile(__dirname + "/public/login.html");
+    res.redirect('/')
   })
   .post(async (req, res) => {
     var username = req.body.username,
@@ -92,36 +134,31 @@ app
       try {
         var user = await User.findOne({ username: username }).exec();
         if(!user) {
+          console.log('erro')
             res.redirect("/login");
         }
         user.comparePassword(password, (error, match) => {
             if(!match) {
+              console.log('erroa')
               res.redirect("/login");
             }
         });
         req.session.user = user;
-        res.redirect("/dashboard");
+
+        res.redirect("/");
     } catch (error) {
       console.log(error)
     }
   });
 
-// route for user's dashboard
-app.get("/dashboard", (req, res) => {
-  if (req.session.user && req.cookies.user_sid) {
-    res.sendFile(__dirname + "/public/dashboard.html");
-  } else {
-    res.redirect("/login");
-  }
-});
 
 // route for user logout
-app.get("/logout", (req, res) => {
+app.post("/logout", (req, res) => {
   if (req.session.user && req.cookies.user_sid) {
     res.clearCookie("user_sid");
     res.redirect("/");
   } else {
-    res.redirect("/login");
+    res.redirect("/");
   }
 });
 

@@ -1,0 +1,113 @@
+<html lang="pt-BR">
+
+<%- include('./parts/head', {linkCss: 'css/index.css', title: 'Jungle'}) %> 
+
+<body>
+
+<%- include('./parts/header') %> 
+    
+    <div class="container home">
+
+        <div class="content-home">
+            <p class="sub">Welcome to</p>
+        <div id="title-home">
+            <h2 class="animate__animated animate__fadeInDown">Jungle</h2> 
+        </div>
+
+        <p class="sub one">Um pedacinho do Jardim de Inverno :)</p>
+
+        <div class="destinos">
+           
+
+            <nav class="carrousel">
+                <p class="sub esp">-- Plantas --</p>
+
+                <nav class="nav-cards">
+
+<div class="click jabuticabeira">
+
+    <div class="card jabuticabeira" >
+                    
+                    <div class="cont-card jabuticabeira hide" >
+                        <p>Jabuticabeira</p>
+                            
+                            <p class="desc jabuticabeira hide"></p>
+                    </div>
+                    
+                </div>
+</div>
+
+                
+<div class="click">
+
+    <div class="card agapantos" >
+                     
+                    <div class="cont-card agapantos hide" >
+                        <p>Agapantos</p>
+                        
+                            <p class="desc jp hide"></p>
+                    </div>
+                    
+                </div>
+</div>
+                
+<div class="click">
+<div class="card jiboia" >
+                    
+                    <div class="cont-card jiboia hide">
+                        <p>Jiboia</p>
+                        
+                            <p class="desc jiboia hide">
+                    
+                                </p>
+                    </div>
+                    
+                </div>
+
+
+</div>
+
+
+                </nav>
+<p class="sub footer"><a href="/plantas" class="sub">Veja mais na Galeria de Plantas &#8618;</a></p>
+            </nav>
+
+        </div>
+
+<div class="hr"></div>
+
+
+<%if(sessionID === 'NOT'){%>
+
+   <h3>Fique por dentro de todas as novidades da Jungle!!</h3>
+
+<%- include('./parts/login') %> 
+
+
+<div class="hr"></div> 
+    <%}%>
+
+
+<div class="viagemHome">
+   
+    <img id="imgBust" src="img/logo.png" alt="">
+     
+    <div class="viagemHomeTxt">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quidem esse et magni praesentium. 
+            Similique, corrupti. Nemo tempore impedit, officiis ut recusandae cumque voluptatem eveniet quo 
+            sint alias eum temporibus corrupti?
+    </p>
+       
+    </div>
+
+</div>
+
+    </div>
+    
+    </div>
+
+<%- include('./parts/footer') %>  
+
+</body>
+
+</html>
