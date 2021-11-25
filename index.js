@@ -69,7 +69,13 @@ var sessionChecker = (req, res, next) => {
 };
 
 app.get("/home", (req, res) => {
-  res.render(views + 'home', {sessionID, usernameView})
+  if (req.session.user && req.cookies.user_sid) {
+    usernameView = req.session.user.username
+    res.render(views + 'home', {sessionID, usernameView})
+  } else {
+    res.redirect("/");
+  }
+  
 });
 
 // route for Home-Page
