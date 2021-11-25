@@ -59,7 +59,7 @@ app.use((req, res, next) => {
 var sessionChecker = (req, res, next) => {
   if (req.session.user && req.cookies.user_sid) {
     console.log('logado')
-    usernameView = req.session.user.username
+    
     sessionID = 'YES'
     res.redirect('/home')
   } else {
@@ -119,7 +119,7 @@ app
       } else {
           console.log(docs)
         req.session.user = docs;
-        
+        usernameView = req.session.user.username
         res.redirect("/");
       }
     });
@@ -148,7 +148,7 @@ app
             }
         });
         req.session.user = user;
-
+        usernameView = req.session.user.username
         res.redirect("/");
     } catch (error) {
       console.log(error)
