@@ -88,7 +88,7 @@ var sessionChecker = (req, res, next) => {
 app.get("/home", (req, res) => {
   sessionID = 'YES'
   usernameView = req.session.user.username
-  if (req.session.user && req.cookies.user_sid) {
+  if (req.session.user) {
     
     console.log(sessionID)
   console.log(req.session.user)
